@@ -6,7 +6,7 @@ import './App.css';
 
 const App = () => {
 	const [items, setItems] = useState([]);
-	const [isLoading, setLoading] = useState(true);
+	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
 		const fetchItems = async () => {
@@ -15,7 +15,7 @@ const App = () => {
 			);
 
 			setItems(result.data);
-			setLoading(false);
+			setIsLoading(false);
 		};
 
 		fetchItems();
@@ -24,7 +24,7 @@ const App = () => {
 	return (
 		<div>
 			<Header />
-			<CharacterGrid setLoading={setLoading} items={items} />
+			<CharacterGrid isLoading={isLoading} items={items} />
 		</div>
 	);
 };
